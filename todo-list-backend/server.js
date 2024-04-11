@@ -26,4 +26,5 @@ mongoose
   })
   .catch((error) => {
     console.log("Cannot connect to MongoDB");
+    console.log(error);
   });
