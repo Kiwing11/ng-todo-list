@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Lobster&display=swap");
+body {
+  background-color: #eaebec;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  font-family: "Lobster", cursive;
+}
+
+nav {
+  background-color: #3182ce;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #d1d5db;
+}
