@@ -3,7 +3,7 @@ import { ApplicationConfig, importProvidersFrom } from "@angular/core";
 import { provideRouter, withComponentInputBinding } from "@angular/router";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { routes } from "./app.routes";
-import { httpInterceptor } from "./user/interceptors/http.interceptor";
+import { httpInterceptor } from "./auth/interceptors/http.interceptor";
 
 export const appConfig: ApplicationConfig = {
   providers: [

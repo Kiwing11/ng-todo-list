@@ -65,8 +65,7 @@ const createTask = asyncHandler(async (req, res) => {
 const getTask = asyncHandler(async (req, res) => {
   const task = await Task.findById(req.params.id);
   if (!task) {
-    res.status(404);
-    throw new Error("Task not found");
+    res.status(404).json({ message: "Task not found" });
   }
   res.status(200).json(task);
 });
@@ -82,13 +81,13 @@ const getTask = asyncHandler(async (req, res) => {
 const updateTask = asyncHandler(async (req, res) => {
   const task = await Task.findById(req.params.id);
   if (!task) {
-    res.status(404);
-    throw new Error("Task not found");
+    res.status(404).json({ message: "Task not found" });
   }
 
   if (task.user_id.toString() !== req.user.id) {
-    res.status(403);
-    throw new Error("User don't have permission to update other user tasks");
+    res.status(403).json({
+      message: "User don't have permission to update other user tasks",
+    });
   }
 
   const updatedTask = await Task.findByIdAndUpdate(req.params.id, req.body, {
@@ -109,12 +108,14 @@ const updateTask = asyncHandler(async (req, res) => {
 const deleteTask = asyncHandler(async (req, res) => {
   const task = await Task.findById(req.params.id);
   if (!task) {
-    res.status(404);
-    throw new Error("Task not found");
+    res.status(404).json({ message: "Task not found" });
   }
   if (task.user_id.toString() !== req.user.id) {
-    res.status(403);
-    throw new Error("User don't have permission to delete other user tasks");
+    res
+      .status(403)
+      .json({
+        message: "User don't have permission to delete other user tasks",
+      });
   }
   await Task.deleteOne({ _id: req.params.id });
   res.status(200).json(task);

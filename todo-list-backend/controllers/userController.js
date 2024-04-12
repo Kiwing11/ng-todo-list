@@ -59,8 +59,7 @@ const registerUser = asyncHandler(async (req, res) => {
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
-    res.status(400);
-    throw new Error("All fields are mandatory!");
+    return res.status(400).json({ message: "All fields are mandatory!" });
   }
   const user = await User.findOne({ email });
   //compare password with hashedpassword
@@ -77,8 +76,7 @@ const loginUser = asyncHandler(async (req, res) => {
     );
     res.status(200).json({ accessToken });
   } else {
-    res.status(401);
-    throw new Error("email or password is not valid");
+    return res.status(401).json({ message: "Email or password is not valid" });
   }
 });
 

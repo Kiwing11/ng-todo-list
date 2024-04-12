@@ -3,8 +3,8 @@ import { Component, inject } from "@angular/core";
 import { RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
 import { BehaviorSubject } from "rxjs";
 import { TasksStateService } from "src/app/task/services/tasks.state.service";
-import { AuthService } from "src/app/user/services/auth.service";
-import { TokenService } from "src/app/user/services/token.service";
+import { AuthService } from "src/app/auth/services/auth.service";
+import { TokenService } from "src/app/auth/services/token.service";
 
 @Component({
   selector: "app-nav",

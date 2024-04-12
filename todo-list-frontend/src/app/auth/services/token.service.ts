@@ -31,7 +31,6 @@ export class TokenService {
 
   removeToken() {
     this.updateToken(false);
-    console.log(constants.CURRENT_TOKEN);
     localStorage.removeItem(constants.CURRENT_TOKEN);
   }
 }

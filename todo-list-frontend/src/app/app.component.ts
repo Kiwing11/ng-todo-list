@@ -1,6 +1,5 @@
 import { Component, inject } from "@angular/core";
 import { TaskListPageComponent } from "./task/task-list.page.component";
-import { TasksStateService } from "./task/services/tasks.state.service";
 import { RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
 import { NavComponent } from "./shared/layouts/nav/nav.component";
 
