@@ -13,6 +13,7 @@ app.use(express.json());
 app.use(cors());
 app.use("/users", require("./routes/userRoutes"));
 app.use("/tasks", require("./routes/taskRoutes"));
+app.use(require("./routes/testRoutes"));
 app.use(errorHandler);
 
 mongoose.set("strictQuery", false);
